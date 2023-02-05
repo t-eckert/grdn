@@ -6,6 +6,11 @@ const config: UserConfig = {
 	test: {
 		include: ["ui/**/*.{test,spec}.{js,ts}"],
 	},
+	server: {
+		fs: {
+			allow: ["./"],
+		},
+	},
 }
 
 export default config
