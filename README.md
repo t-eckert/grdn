@@ -1,38 +1,15 @@
-# create-svelte
+# :seedling: GRDN
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+GRDN is a system for managing automatic data collection and watering of a small garden.
 
-## Creating a project
+[Project board](https://www.notion.so/ardentforge/GRDN-bedc4a8400aa46009fe0b83b77abeae5)
 
-If you're seeing this, you've probably already done this step. Congrats!
+It is designed in a client/server model where the client is co-located with the garden and the
+server is somewhere safer inside, connected to the same network. I designed the system to work
+with a Raspberry Pi Zero 2W running the client and a Raspberry Pi 4 running the server.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+The client is responsible for collecting raw data from the sensors attached to it, turning on
+and off the water, and sending data up to the server. The client is powered by a solar panel.
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+The server is responsible for receiving data from the client, creating a watering schedule, and
+telling the client when it should turn the water on and off.
