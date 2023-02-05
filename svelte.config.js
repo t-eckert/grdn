@@ -1,4 +1,4 @@
-import adapter from "@sveltejs/adapter-static"
+import adapter from "@sveltejs/adapter-auto"
 import { vitePreprocess } from "@sveltejs/kit/vite"
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -18,7 +18,6 @@ const config = {
 			serviceWorker: "ui/service-worker",
 			errorTemplate: "ui/error.html",
 		},
-		outDir: "src/server/.svelte-kit",
 	},
 }
 

@@ -3,6 +3,9 @@ mod report;
 mod sensors;
 mod server;
 
+#[macro_use]
+extern crate rocket;
+
 use clap::{Parser, Subcommand};
 
 #[derive(Parser, Debug)]
@@ -19,11 +22,15 @@ enum Mode {
     Client,
 }
 
-fn main() {
+#[rocket::main]
+async fn main() -> Result<(), rocket::Error> {
     let args = Args::parse();
     match args.mode {
-        Some(Mode::Server) => server::run(),
-        Some(Mode::Client) => client::run(),
-        None => println!("No mode specified."),
+        Some(Mode::Server) => server::run().await,
+        Some(Mode::Client) => client::run().await,
+        None => {
+            println!("No mode specified. Exiting.");
+            Ok(())
+        }
     }
 }
