@@ -1,3 +1,6 @@
+use super::Sensor;
+use crate::report::Report;
+
 pub struct SoilSensor {
     pub name: String,
     pin: u8,
