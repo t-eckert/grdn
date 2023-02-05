@@ -1,4 +1,6 @@
 mod client;
+mod report;
+mod sensors;
 mod server;
 
 use clap::{Parser, Subcommand};
